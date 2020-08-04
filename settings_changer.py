@@ -17,9 +17,6 @@ def FoldersIn(Path):
 
     return Folders
 
-#asks for the user's input
-
-
 
 #finds the different lines storing different settings with a function, then change it.
 def UpdateGameFiles(MaxFPS, DataCenter, SensitivityMultiplier):
@@ -52,7 +49,7 @@ def UpdateGameFiles(MaxFPS, DataCenter, SensitivityMultiplier):
         with open(Folders[i], 'w') as file:
             file.writelines(data)
 
-def SaveSettings(MaxFPS, DataCenter, SensitivityMultiplier):
+def SaveSettings(MaxFPS, DataCenter, SensitivityMultiplier):    # defines the function for saving user input.
 
     global Folders
 
