@@ -17,8 +17,11 @@ def FoldersIn(Path):
 
     return Folders
 
-#finds the different lines storing different settings with a function.
+#asks for the user's input
 
+
+
+#finds the different lines storing different settings with a function, then change it.
 def UpdateGameFiles(MaxFPS, DataCenter, SensitivityMultiplier):
 
     global Folders
@@ -29,26 +32,25 @@ def UpdateGameFiles(MaxFPS, DataCenter, SensitivityMultiplier):
             data = file.readlines()
 
         try:
-            data[105] = 'FPSLimit=' + str(MaxFPS) + "\n"
+            data[104] = 'FPSLimit=' + str(MaxFPS) + "\n"
         except:
             pass
 
 
         try:
-            data[149] = 'DataCenterHint=' + str(DataCenter) + "\n"
+            data[148] = 'DataCenterHint=' + str(DataCenter) + "\n"
         except:
             pass
 
 
         try:
-            data[85] = 'MouseSensitivityMultiplierUnit=' + str(SensitivityMultiplier) + "\n"
+            data[84] = 'MouseSensitivityMultiplierUnit=' + str(SensitivityMultiplier) + "\n"
         except:
             pass
 
 
         with open(Folders[i], 'w') as file:
             file.writelines(data)
-
 
 def SaveSettings(MaxFPS, DataCenter, SensitivityMultiplier):
 
@@ -57,3 +59,9 @@ def SaveSettings(MaxFPS, DataCenter, SensitivityMultiplier):
     Folders = FoldersIn("C:/Users/")
 
     UpdateGameFiles(MaxFPS, DataCenter, SensitivityMultiplier)
+
+MaxFPS = str(input("What would you like to change the FPS limit to? Anything below 30 will disable the FPS limit."))
+DataCenter = (input("What would you like to change the Data Center to?"))
+SensitivityMultiplier = str(input("What would you like to change the Sensitivity Multiplier to?"))
+
+SaveSettings(MaxFPS, DataCenter, SensitivityMultiplier)
