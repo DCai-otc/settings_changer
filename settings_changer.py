@@ -1,8 +1,6 @@
 from tkinter import * # Basic Setup
 UniFont = "Arial"
-def DestroyButton():
-    print (TextWidget.get("1.0","end"))
-    print (EntryWidget.get())
+
 
 # actual program, no ui or ways to interact yet
 import os, fileinput, time
@@ -112,7 +110,7 @@ LabelWidget.place(relx=0.7, rely=0.5, anchor = CENTER)
 MouseWidget = Entry(Window, font = (UniFont, 20), bg="gray19", fg="gray80")
 MouseWidget.place(relx=0.7, rely = 0.6, anchor = CENTER)
 
-SaveSens = Button(Window, font = (UniFont, 20), bg="gray19", fg="gray87", command = MouseSens(MouseWidget.get()), text="Save", relief = 'flat', bd=0)
+SaveSens = Button(Window, font = (UniFont, 20), bg="gray19", fg="gray87", command = lambda: MouseSens(MouseWidget.get()), text="Save", relief = 'flat', bd=0)
 SaveSens.place(relx=0.815   , rely = 0.6, anchor = CENTER)
 
 
