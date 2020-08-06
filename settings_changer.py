@@ -1,9 +1,10 @@
 from tkinter import * # Basic Setup
 UniFont = "Arial"
 
-
 # actual program, no ui or ways to interact yet
 import os, fileinput, time
+
+
 #defines function which finds the file
 def FoldersIn(Path):
 
@@ -66,7 +67,7 @@ def MouseSens(MouseSens):#saves mouse sensitivity
             data = file.readlines()
 
         try:
-            data[84] = 'MouseSensitivityMultiplierUnit=' + str(SensitivityMultiplier) + "\n"
+            data[84] = 'MouseSensitivityMultiplierUnit=' + str(MouseSens) + "\n"
         except:
             pass
 
@@ -80,7 +81,7 @@ def MouseSens(MouseSens):#saves mouse sensitivity
 # Creating and setting up a window
 Window = Tk()
 Window.state("zoomed")
-Window.title("Testing")
+Window.title("Modifi for Rainbow Six: Siege")
 Window.config(bg="gray13")
 
 # Creating a widget 1
