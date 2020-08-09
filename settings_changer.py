@@ -130,7 +130,7 @@ mainframe.pack(pady = 100, padx = 100)
 
 tkvar = StringVar(Window)
 choices = { 'Pizza','Lasagne','Fries','Fish','Potatoe'}
-tkvar.set('Pizza') # set the default option
+tkvar.set('Pizsa') # set the default option
 
 popupMenu = OptionMenu(mainframe, tkvar, *choices)
 Label(mainframe, text="Choose a dish").grid(row = 1, column = 1)
