@@ -12,7 +12,7 @@ def FoldersIn(Path):
 
     for r, d, f in os.walk(Path):
         for folder in d:
-            if "Pictures\Documents\My Games\Rainbow Six - Siege" in str(os.path.join(r, folder)):
+            if "Documents\My Games\Rainbow Six - Siege" in str(os.path.join(r, folder)):
                 for r, d, f in os.walk(str(os.path.join(r, folder))):
                     for folder in d:
                         if "Benchmark" not in (str(os.path.join(r, folder))):
@@ -50,7 +50,7 @@ def DataCenter(DataCenter): #save data center
             data = file.readlines()
 
         try:
-            data[148] = 'DataCenterHint=' + str(DataCenter) + "\n"
+            data[149] = 'DataCenterHint=' + str(DataCenter) + "\n"
         except:
             pass
 
@@ -67,7 +67,7 @@ def MouseSens(MouseSens):#saves mouse sensitivity
             data = file.readlines()
 
         try:
-            data[84] = 'MouseSensitivityMultiplierUnit=' + str(MouseSens) + "\n"
+            data[85] = 'MouseSensitivityMultiplierUnit=' + str(MouseSens) + "\n"
         except:
             pass
 
@@ -84,7 +84,7 @@ Window.state("zoomed")
 Window.title("Modifi for Rainbow Six: Siege")
 Window.config(bg="gray13")
 
-# Creating a widget 1
+# button 1: FPS
 LabelWidget = Label(Window, text="FPS Limit", font = (UniFont, 60), bg="gray13", fg="gray87")
 LabelWidget.place(relx=0.15, rely=0.5, anchor = CENTER)
 
@@ -104,7 +104,7 @@ ServerWidget.place(relx=0.4, rely = 0.6, anchor = CENTER)
 SaveServer = Button(Window, font = (UniFont, 20), bg="gray19", fg="gray87", command = lambda: DataCenter(ServerWidget.get()), text="Save", relief = 'flat', bd=0)
 SaveServer.place(relx=0.515   , rely = 0.6, anchor = CENTER)
 
-#button 3
+#button 3: Sensitivity Multiplier
 LabelWidget = Label(Window, text="Multiplier", font = (UniFont, 60), bg="gray13", fg="gray87")
 LabelWidget.place(relx=0.7, rely=0.5, anchor = CENTER)
 
