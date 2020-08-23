@@ -94,7 +94,7 @@ FPSWidget.place(relx=0.15, rely = 0.6, anchor = CENTER)
 SaveButton = Button(Window, font = (UniFont, 20), bg="gray19", fg="gray87", command = lambda: SaveFPS(FPSWidget.get()), text="Save", relief = 'flat', bd=0)
 SaveButton.place(relx=0.257, rely = 0.6, anchor = CENTER)
 
-#button 2: server
+#button 2: Server
 LabelWidget = Label(Window, text="Server ", font = (UniFont, 60), bg="gray13", fg="gray87")
 LabelWidget.place(relx=0.4, rely=0.5, anchor = CENTER)
 
@@ -129,8 +129,8 @@ mainframe.rowconfigure(0, weight = 1)
 mainframe.pack(pady = 100, padx = 100)
 
 tkvar = StringVar(Window)
-choices = { 'Pizza','Lasagne','Fries','Fish','Potatoe'}
-tkvar.set('Pizsa') # set the default option
+choices = { 'Default','US East','US Central','US South Central','US West','Brazil South','Europe North','Europe West','Asia East','Asia South East','Australia East','Japan West'}
+tkvar.set('Default') # set the default option
 
 popupMenu = OptionMenu(mainframe, tkvar, *choices)
 Label(mainframe, text="Choose a dish").grid(row = 1, column = 1)
