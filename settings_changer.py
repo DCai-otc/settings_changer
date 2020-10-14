@@ -1,7 +1,7 @@
 from tkinter import * # Basic Setup
 UniFont = "Arial"
 
-# actual program, no ui or ways to interact yet
+# actual program functions
 import os, fileinput, time
 
 
@@ -20,7 +20,7 @@ def FoldersIn(Path):
                 break
     return Folders
 
-
+# function which saves the FPS limit
 def SaveFPS(MaxFPS): # save fps
 
     Folders = FoldersIn("C:/Users/")
@@ -32,7 +32,7 @@ def SaveFPS(MaxFPS): # save fps
             data = file.readlines()
 
         try:
-            data[104] = 'FPSLimit={}\n'.format(MaxFPS)
+            data[127] = 'FPSLimit={}\n'.format(MaxFPS)
 
         except:
             pass
@@ -40,7 +40,8 @@ def SaveFPS(MaxFPS): # save fps
         with open(Folders[i], 'w') as file:
             file.writelines(data)
 
-def DataCenter(DataCenter): #save data center
+# Function which saves the Data Center
+def DataCenter(DataCenter):
 
     Folders = FoldersIn("C:/Users/")
 
@@ -50,14 +51,15 @@ def DataCenter(DataCenter): #save data center
             data = file.readlines()
 
         try:
-            data[149] = 'DataCenterHint=' + str(DataCenter) + "\n"
+            data[171] = 'DataCenterHint=' + str(DataCenter) + "\n"
         except:
             pass
 
         with open(Folders[i], 'w') as file:
             file.writelines(data)
 
-def MouseSens(MouseSens):#saves mouse sensitivity
+# Function which saves the Mouse Sensitivity
+def MouseSens(MouseSens):
 
     Folders = FoldersIn("C:/Users/")
 
@@ -67,7 +69,7 @@ def MouseSens(MouseSens):#saves mouse sensitivity
             data = file.readlines()
 
         try:
-            data[85] = 'MouseSensitivityMultiplierUnit=' + str(MouseSens) + "\n"
+            data[119] = 'MouseSensitivityMultiplierUnit=' + str(MouseSens) + "\n"
         except:
             pass
 
@@ -81,7 +83,7 @@ def MouseSens(MouseSens):#saves mouse sensitivity
 # Creating and setting up a window
 Window = Tk()
 Window.state("zoomed")
-Window.title("Modifi for Rainbow Six: Siege")
+Window.title("Modifi Settings Changer")
 Window.config(bg="gray13")
 
 # button 1: FPS
@@ -94,7 +96,7 @@ FPSWidget.place(relx=0.15, rely = 0.6, anchor = CENTER)
 SaveButton = Button(Window, font = (UniFont, 20), bg="gray19", fg="gray87", command = lambda: SaveFPS(FPSWidget.get()), text="Save", relief = 'flat', bd=0)
 SaveButton.place(relx=0.257, rely = 0.6, anchor = CENTER)
 
-#button 2: server
+#button 2: Server
 LabelWidget = Label(Window, text="Server ", font = (UniFont, 60), bg="gray13", fg="gray87")
 LabelWidget.place(relx=0.4, rely=0.5, anchor = CENTER)
 
@@ -113,34 +115,5 @@ MouseWidget.place(relx=0.7, rely = 0.6, anchor = CENTER)
 
 SaveSens = Button(Window, font = (UniFont, 20), bg="gray19", fg="gray87", command = lambda: MouseSens(MouseWidget.get()), text="Save", relief = 'flat', bd=0)
 SaveSens.place(relx=0.815   , rely = 0.6, anchor = CENTER)
-
-
-
-
-
-
-
-
-#testing, ignore
-mainframe = Frame(Window)
-mainframe.grid(column=0,row=0, sticky=(N,W,E,S) )
-mainframe.columnconfigure(0, weight = 1)
-mainframe.rowconfigure(0, weight = 1)
-mainframe.pack(pady = 100, padx = 100)
-
-tkvar = StringVar(Window)
-choices = { 'Pizza','Lasagne','Fries','Fish','Potatoe'}
-tkvar.set('Pizza') # set the default option
-
-popupMenu = OptionMenu(mainframe, tkvar, *choices)
-Label(mainframe, text="Choose a dish").grid(row = 1, column = 1)
-popupMenu.grid(row = 2, column =1)
-
-# on change dropdown value
-def change_dropdown(*args):
-    print( tkvar.get() )
-
-# link function to change dropdown
-tkvar.trace('w', change_dropdown)
 
 Window.mainloop()
